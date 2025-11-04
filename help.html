@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Help Page</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+      background-color: #f7f7f7;
+      margin: 0;
+    }
+
+    .form-container {
+      background: white;
+      padding: 30px 40px;
+      border-radius: 10px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      width: 90%;
+      max-width: 400px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+      font-size: 1rem;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .error {
+      color: red;
+      font-size: 0.9rem;
+      display: none;
+      margin-top: 5px;
+    }
+
+    button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 12px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 5px;
+      background-color: #007BFF;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Contact Support</h2>
+    <form id="helpForm" novalidate>
+      <label for="name">Name *</label>
+      <input type="text" id="name" name="name" placeholder="Your name">
+      <div class="error" id="nameError">Please enter your name.</div>
+
+      <label for="email">Email *</label>
+      <input type="email" id="email" name="email" placeholder="Your email">
+      <div class="error" id="emailError">Please enter your email.</div>
+
+      <label for="problem">Describe your problem *</label>
+      <textarea id="problem" name="problem" placeholder="Describe your problem"></textarea>
+      <div class="error" id="problemError">Please describe your problem.</div>
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <script>
+    const form = document.getElementById('helpForm');
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault(); // prevent default form submission
+
+      let valid = true;
+
+      // Get input values
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const problem = document.getElementById('problem').value.trim();
+
+      // Error elements
+      const nameError = document.getElementById('nameError');
+      const emailError = document.getElementById('emailError');
+      const problemError = document.getElementById('problemError');
+
+      // Reset error messages
+      nameError.style.display = 'none';
+      emailError.style.display = 'none';
+      problemError.style.display = 'none';
+
+      // Validate fields
+      if (name === "") {
+        nameError.style.display = 'block';
+        valid = false;
+      }
+
+      if (email === "") {
+        emailError.style.display = 'block';
+        valid = false;
+      }
+
+      if (problem === "") {
+        problemError.style.display = 'block';
+        valid = false;
+      }
+
+      if (valid) {
+        alert("Form submitted successfully!"); 
+        form.reset();
+      }
+    });
+  </script>
+</body>
+</html>

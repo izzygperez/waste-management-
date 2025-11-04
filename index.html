@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eco Plate — Sustainable Cooking</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
+    <style>
+      /* -------------------- Reset & Base -------------------- */
+      * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', Arial, sans-serif; }
+    body {
+      background: #ffffff; /* plain white background */
+      color: #2f4d36;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+    }
+
+
+      /* -------------------- Navigation -------------------- */
+      .main-nav {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        position: relative;
+        padding: 1rem 0;
+        background: #ffffffaa;
+        backdrop-filter: blur(6px);
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        z-index: 100;
+      }
+      .nav-list { display: flex; gap: 1rem; }
+      .nav-link {
+        color: #2e7d32;
+        font-weight: 600;
+        padding: 0.5rem 1rem;
+        border-radius: 12px;
+        transition: background 0.25s, color 0.25s;
+      }
+      .nav-link:hover { background: #2e7d32; color: #fff; }
+
+      /* -------------------- Hero Section -------------------- */
+      header {
+        background: url("https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1200&q=80") center/cover no-repeat;
+        width: 100%;
+        padding: 4rem 1.5rem;
+        border-bottom-left-radius: 30px;
+        border-bottom-right-radius: 30px;
+        text-align: center;
+        color: #000000;
+        text-shadow: 1px 2px 6px rgba(0,0,0,0.4);
+      }
+      header h1 { font-size: 3rem; margin-bottom: 0.5rem; }
+      header p { font-size: 1.25rem; font-weight: 400; }
+
+      /* -------------------- Icon Row -------------------- */
+      .icons {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 2rem;
+        margin: 2rem 1rem;
+      }
+      .icon {
+        background: #ffffff;
+        border-radius: 20px;
+        padding: 1rem;
+        width: 100px;
+        height: 110px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .icon:hover { transform: translateY(-6px); box-shadow: 0 10px 20px rgba(0,0,0,0.12); }
+      .icon img { width: 55px; height: 55px; }
+      .icon span { font-size: 0.9rem; font-weight: 600; color: #2e7d32; }
+
+      /* -------------------- Content Cards -------------------- */
+      .content {
+        background: #000000;
+        border-radius: 20px;
+        padding: 2rem 1.5rem;
+        margin: 2rem 1rem;
+        max-width: 640px;
+        box-shadow: 0 6px 20px rgba(71, 71, 71, 0.08);
+      }
+      .content h2 { font-size: 1.6rem; color: #ededed; margin-bottom: 1rem; }
+      .content p, .content ul { font-size: 1rem; line-height: 1.6; color: #ffffff; }
+      .content a { display: block; background: #ffffff; border-left: 5px solid #66bb6a; padding: 0.75rem 1rem; border-radius: 12px; margin-top: 0.5rem; color: #2d4739; font-weight: 500; transition: transform 0.2s; }
+      .content a:hover { transform: translateX(5px); }
+
+      /* -------------------- Buttons -------------------- */
+      .cta-button {
+        display: inline-block;
+        background-color: #2e7d32;
+        color: #fff;
+        padding: 0.75rem 1.5rem;
+        border-radius: 25px;
+        font-weight: 600;
+        margin: 1rem 0.5rem 0.5rem 0;
+        transition: background 0.3s, transform 0.2s;
+      }
+      .cta-button:hover { background-color: #256428; transform: translateY(-2px); }
+
+      /* -------------------- Icon Variants -------------------- */
+      .icon.recycle {
+        background: linear-gradient(145deg, #dcedc8, #c5e1a5);
+      }
+
+      .icon.compost {
+        background: linear-gradient(145deg, #fff9c4, #fff59d);
+      }
+
+      .icon.cook {
+        background: linear-gradient(145deg, #ffe0b2, #ffcc80);
+      }
+
+      .icon.save {
+        background: linear-gradient(145deg, #c8e6c9, #a5d6a7);
+      }
+
+
+      /* -------------------- Footer -------------------- */
+      footer {
+        margin-top: 3rem;
+        padding: 1.5rem;
+        text-align: center;
+        font-size: 0.85rem;
+        color: #7a9b78;
+      }
+
+      /* -------------------- Responsive -------------------- */
+      @media (max-width: 768px) {
+        header h1 { font-size: 2.2rem; }
+        header p { font-size: 1rem; }
+        .icons { gap: 1.5rem; }
+        .content { padding: 1.5rem; margin: 1.5rem 1rem; }
+      }
+      @media (max-width: 480px) {
+        .icons { flex-direction: column; align-items: center; }
+        .icon { width: 140px; height: auto; padding: 0.75rem; }
+        .cta-button { width: 100%; text-align: center; }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="main-nav" aria-label="Primary">
+      <ul class="nav-list">
+        <li><a class="nav-link" href="/">Home</a></li>
+        <li><a class="nav-link" href="/recipes.html">Recipes</a></li>
+        <li><a class="nav-link" href="/motivation.html">Motivation</a></li>
+      </ul>
+    </nav>
+
+    <header>
+      <h1>Eco Plate</h1>
+      <p>Cook smart. Save money. Protect the planet.</p>
+    </header>
+
+    <div class="icons">
+      <div class="icon recycle">
+        <img src="/recycle-sign.png" alt="Recycle Sign" />
+        <span>Recycle</span>
+      </div>
+      <div class="icon compost">
+        <img src="/compostable.png" alt="Plant Icon" />
+        <span>Compost</span>
+      </div>
+      <div class="icon cook">
+        <img src="/chef.png" alt="Cooking Icon" />
+        <span>Cook</span>
+      </div>
+      <div class="icon save">
+        <img src="/save-money.png" alt="Money Icon" />
+        <span>Save</span>
+      </div>
+    </div>
+
+    <div class="content">
+      <h2>Why Waste Management Matters</h2>
+      <p>
+        Every year, tons of food are wasted — wasting money, resources, and energy.
+        Proper waste management helps us make the most of what we already have,
+        reducing pollution and promoting sustainability.
+      </p>
+      <p>
+        Eco Plate helps you track your ingredients, discover recipes that use
+        what you already own, and reduce food waste — one meal at a time.
+      </p>
+      <a href="/recipes.html" class="cta-button">Get Started</a>
+    </div>
+
+    <div class="content">
+      <h2>Who Are the Users?</h2>
+      <p>
+        Eco Plate is designed for everyone who wants to live more sustainably — from busy students to families and home cooks around the world.
+      </p>
+      <h2>Resources & References</h2>
+      <a href="https://www.epa.gov/recycle/reducing-wasted-food-home" target="_blank">🌎 EPA — Reducing Wasted Food at Home</a>
+      <a href="https://lovefoodhatewaste.com/" target="_blank">💚 Love Food Hate Waste</a>
+      <a href="https://www.savethefood.com/" target="_blank">🍽️ Save The Food</a>
+    </div>
+
+    <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:0.5rem; margin:1rem 0;">
+      <a href="/motivation.html" class="cta-button">Learn More About My Motivation</a>
+      <a href="/help.html" class="cta-button">Get Help!</a>
+      <a href="/welcome.html" class="cta-button">First Time Here? Click Here!</a>
+    </div>
+
+    <footer>
+      <p>© 2025 Eco Plate — Designed with nature in mind by Izzy Perez</p>
+    </footer>
+  </body>
+</html>

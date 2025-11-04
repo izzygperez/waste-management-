@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Eco Plate — Find Recipes</title>
+    <link rel="stylesheet" href="/style.css" />
+    <style>
+      body { font-family: Poppins, Arial, sans-serif; background: linear-gradient(to bottom right,#e8f5e9,#fdfaf6); color: #213d2b; padding: 2rem; }
+      .card { max-width:720px; margin: 0 auto; background: #fff; padding: 1.5rem; border-radius: 12px; box-shadow: 0 6px 18px rgba(0,0,0,0.08); }
+      .chat { border: 1px solid #eee; padding: 1rem; min-height: 140px; border-radius: 8px; margin-bottom: 1rem; }
+      .messages { list-style: none; padding: 0; margin: 0; }
+      .messages li { margin-bottom: 0.6rem; }
+      .bot { color: #fff; background: #2e7d32; display: inline-block; padding: 0.5rem 0.75rem; border-radius: 12px; }
+      .user { color: #213d2b; background: #f1f8f2; display: inline-block; padding: 0.5rem 0.75rem; border-radius: 12px; }
+      .controls { display:flex; gap: .5rem; margin-top: .75rem; }
+      input[type=text] { flex: 1; padding: .6rem .75rem; border-radius: 8px; border: 1px solid #dfeee0; }
+      button { background: #2e7d32; color: white; border: none; padding: .6rem .9rem; border-radius: 8px; }
+      .results { margin-top: 1rem; }
+      .recipe { border-bottom: 1px dashed #e6efe6; padding: .75rem 0; }
+      /* Tablet */
+      @media (max-width: 900px) {
+        .card { max-width: 640px; padding: 1.25rem; }
+      }
+      /* Mobile: stack controls vertically and make card full-width */
+      @media (max-width: 480px) {
+        body { padding: 1rem; }
+        .card { width: 100%; padding: 1rem; box-shadow: none; }
+        .controls { flex-direction: column; }
+        .controls input, .controls button { width: 100%; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <h1>Find recipes from your ingredients</h1>
+      <p>Tell me what ingredients you have (comma separated). I'll suggest recipes.</p>
+
+      <div class="chat">
+        <ul class="messages" id="messages">
+          <li><span class="bot">Hi! What ingredients do you have?</span></li>
+        </ul>
+      </div>
+
+      <div class="controls">
+        <input id="ingredients" type="text" placeholder="e.g. tomato, cheese, basil" />
+        <input id="apikey" type="text" placeholder="Spoonacular API key" />
+        <button id="send">Ask</button>
+      </div>
+
+      <div class="results" id="results"></div>
+    </div>
+
+    <script src="/src/recipes.js"></script>
+  </body>
+</html>
