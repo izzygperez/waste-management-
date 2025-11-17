@@ -74,6 +74,12 @@ sendBtn.addEventListener('click', async () => {
     addMessage('Error fetching recipes: ' + err.message, 'bot');
   }
 });
+ingredientsInput.addEventListener("keypress", function (e) {
+  if (e.key === "Enter") {
+    e.preventDefault();
+    sendBtn.click();
+  }
+});
 
 // Escape HTML to prevent injection
 function escapeHtml(str) {
