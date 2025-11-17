@@ -53,7 +53,11 @@ sendBtn.addEventListener('click', async () => {
       return;
     }
 
-    addMessage(`Found ${data.length} recipes. Showing top results.`, 'bot');
+    const summary = document.createElement('div');
+    summary.style.marginBottom = '0.75rem';
+    summary.innerHTML = `<strong>Found ${data.length} recipes. Showing top results.</strong>`;
+    resultsEl.appendChild(summary);
+
 
     data.forEach(r => {
       const div = document.createElement('div');
