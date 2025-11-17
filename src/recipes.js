@@ -42,11 +42,14 @@ sendBtn.addEventListener('click', async () => {
   if (!ingredients) return addMessage('Please enter one or more ingredients.', 'bot');
 
   addMessage(ingredients, 'user');
-  addMessage('Looking up recipes...', 'bot');
+  ingredientsInput.value = '';
   resultsEl.innerHTML = '';
+
+  resultsEl.innerHTML = '<div class="loader">Fetching the best recipes for you...</div>';
 
   try {
     const data = await fetchRecipes(ingredients);
+    resultsEl.innerHTML = '';
 
     if (!Array.isArray(data) || data.length === 0) {
       addMessage('No recipes found for those ingredients.', 'bot');
@@ -72,6 +75,7 @@ sendBtn.addEventListener('click', async () => {
 
   } catch (err) {
     addMessage('Error fetching recipes: ' + err.message, 'bot');
+    resultsEl.innerHTML = '';
   }
 });
 
