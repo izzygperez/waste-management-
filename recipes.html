@@ -4,10 +4,16 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Eco Plate — Find Recipes</title>
-    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="/src/style.css">
     <style>
-      body { font-family: Poppins, Arial, sans-serif; background: linear-gradient(to bottom right,#e8f5e9,#fdfaf6); color: #213d2b; padding: 2rem; }
-      .card { max-width:720px; margin: 0 auto; background: #fff; padding: 1.5rem; border-radius: 12px; box-shadow: 0 6px 18px rgba(0,0,0,0.08); }
+      body {
+        font-family: Poppins, Arial, sans-serif;
+        background: linear-gradient(to bottom right,#e8f5e9,#fdfaf6);
+        color: #213d2b;
+        margin: 0; /* ensure nav reaches the top */
+        padding: 0; /* IMPORTANT FIX */
+      }      
+      .card {margin-top: 2rem; max-width:720px; margin: 0 auto; background: #fff; padding: 1.5rem; border-radius: 12px; box-shadow: 0 6px 18px rgba(0,0,0,0.08); }
       .chat { border: 1px solid #eee; padding: 1rem; min-height: 140px; border-radius: 8px; margin-bottom: 1rem; }
       .messages { list-style: none; padding: 0; margin: 0; }
       .messages li { margin-bottom: 0.6rem; }
@@ -38,6 +44,13 @@
     </style>
   </head>
   <body>
+    <nav class="main-nav" aria-label="Primary">
+    <ul class="nav-list">
+      <li><a class="nav-link" href="/">Home</a></li>
+      <li><a class="nav-link" href="/recipes.html">Recipes</a></li>
+      <li><a class="nav-link" href="/motivation.html">Motivation</a></li>
+    </ul>
+  </nav>
     <div class="card">
       <h1>Find recipes from your ingredients</h1>
       <p>Tell me what ingredients you have (comma separated). I'll suggest recipes.</p>
