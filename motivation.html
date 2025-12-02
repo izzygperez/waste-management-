@@ -1,128 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Eco Plate — Motivation</title>
-  <link rel="stylesheet" href="/src/style.css">
-  <style>
-    body {
-      font-family: "Poppins", Arial, sans-serif;
-      background: linear-gradient(to bottom right, #e8f5e9, #fdfaf6);
-      color: #2f4d36;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      min-height: 100vh;
-      margin: 0;
-    }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eco Plate — Our Mission</title>
+    <link rel="stylesheet" href="/src/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  </head>
+  <body>
 
-    .card{
-      padding: 0;
-    }
+    <nav class="main-nav" aria-label="Primary">
+      <div class="nav-container">
+        <a href="/" class="logo">Eco Plate 🌿</a>
+        <ul class="nav-list">
+          <li><a class="nav-link" href="/">Home</a></li>
+          <li><a class="nav-link" href="/recipes.html">Recipes</a></li>
+          <li><a class="nav-link" href="/pantry.html">Pantry</a></li>
+          <li><a class="nav-link" href="/motivation.html">Mission</a></li>
+        </ul>
+      </div>
+    </nav>
 
-    h1 {
-      color: #2e7d32;
-      margin-bottom: 1rem;
-      text-align: center;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-    }
+    <header class="hero" style="padding: 3rem 1rem;">
+      <div class="hero-content">
+        <div class="impact-badge home-badge">
+          <i class="fa-solid fa-bullseye"></i> Our Purpose
+        </div>
+        <h1>Closing the Loop on Food Waste.</h1>
+        <p>We are using emerging technology to revive the sustainable kitchen.</p>
+      </div>
+    </header>
 
-    .content {
-      background: #ffffff;
-      border-radius: 20px;
-      padding: 2rem 1.5rem;
-      margin-bottom: 2rem;
-      max-width: 700px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
+    <section class="card" style="margin-top: 0;">
+      
+      <div class="mission-section">
+        <h2><i class="fa-solid fa-triangle-exclamation" style="color: #f57c00;"></i> The Problem</h2>
+        <p>
+          Households waste nearly <strong>30% of the food they buy</strong>. This isn't just money down the drain—it contributes massively to global greenhouse gas emissions. The problem isn't that people don't care; it's that tracking ingredients manually is tedious and difficult.
+        </p>
+      </div>
 
-    h2 {
-      color: #2e7d32;
-      margin-top: 1rem;
-      margin-bottom: 0.75rem;
-    }
+      <hr style="border: 0; border-top: 1px solid #eee; margin: 2rem 0;">
 
-    p, ul {
-      font-size: 1rem;
-      line-height: 1.6;
-      color: #4f5d4f;
-    }
+      <div class="mission-section">
+        <h2><i class="fa-solid fa-lightbulb" style="color: #2e7d32;"></i> The Eco Plate Solution</h2>
+        <p>
+          Eco Plate is a web-based application designed to bridge the gap between your fridge and your dinner table. By integrating <strong>Smart Scan Technology (Computer Vision)</strong>, we remove the friction of manual tracking.
+        </p>
+        <ul style="margin-top: 1rem; list-style: none;">
+          <li style="margin-bottom: 0.5rem;"><i class="fa-solid fa-check" style="color:green;"></i> <strong>Automated Inventory:</strong> No more typing. The camera logs what you buy.</li>
+          <li style="margin-bottom: 0.5rem;"><i class="fa-solid fa-check" style="color:green;"></i> <strong>Zero-Waste Recipes:</strong> Our algorithm prioritizes ingredients that are about to expire.</li>
+          <li style="margin-bottom: 0.5rem;"><i class="fa-solid fa-check" style="color:green;"></i> <strong>Cost Savings:</strong> Eat what you have, save money on groceries.</li>
+        </ul>
+      </div>
 
-    ul {
-      padding-left: 1.5rem;
-    }
+      <div style="text-align: center; margin-top: 3rem;">
+        <a href="/recipes.html" class="primary-btn">Start Your Zero-Waste Journey</a>
+      </div>
 
-    .back-button {
-      display: inline-block;
-      background-color: #2e7d32;
-      color: white;
-      text-decoration: none;
-      padding: 0.75rem 1.5rem;
-      border-radius: 25px;
-      font-weight: 500;
-      transition: background 0.3s ease;
-      margin-bottom: 2rem;
-    }
+    </section>
 
-    .back-button:hover {
-      background-color: #256428;
-    }
+    <footer class="site-footer">
+      <div class="footer-content">
+        <div class="footer-col">
+          <h4>Eco Plate</h4>
+          <p>Designed with nature in mind.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <a href="https://www.epa.gov/recycle/reducing-wasted-food-home" target="_blank">EPA Guidelines</a>
+          <a href="https://lovefoodhatewaste.com/" target="_blank">Love Food Hate Waste</a>
+        </div>
+        <div class="footer-col">
+          <h4>Support</h4>
+          <a href="/help.html">Contact Us</a>
+        </div>
+      </div>
+      <div class="copyright">
+        &copy; 2025 Eco Plate Team
+      </div>
+    </footer>
 
-    @media (max-width: 600px) {
-      .content {
-        padding: 1.5rem;
-      }
-      h1 {
-        font-size: 1.8rem;
-      }
-    }
-  </style>
-</head>
-<body>
-  <nav class="main-nav" aria-label="Primary">
-    <ul class="nav-list">
-      <li><a class="nav-link" href="/">Home</a></li>
-      <li><a class="nav-link" href="/recipes.html">Recipes</a></li>
-      <li><a class="nav-link" href="/motivation.html">Motivation</a></li>
-    </ul>
-  </nav>
-
-  <h1>Eco Plate — Motivation</h1>
-
-  <div class="content">
-    <h2>Description</h2>
-    <p>
-      Eco Plate is a mobile-based application that helps users cook more sustainably by reducing food waste and saving money. 
-      Users input the ingredients they already have at home and receive recipe suggestions that are low-waste, seasonal, and cost-effective. 
-      Much like apps such as Yummly or Allrecipes, this app focuses on sustainability, guiding users toward efficient ingredient use and minimizing food waste.
-    </p>
-  </div>
-
-  <div class="content">
-    <h2>Web-App Features</h2>
-    <ul>
-      <li>Ingredient input form to track what users have at home.</li>
-      <li>Recipe suggestions based on ingredients, sustainability, and seasonality.</li>
-      <li>Integration with a reliable recipe database via API.</li>
-      <li>Personalized recommendations to reduce waste and save money.</li>
-      <li>Progress tracking and tips for environmentally conscious cooking habits.</li>
-      <li>Mobile-friendly interface for easy use anywhere.</li>
-    </ul>
-  </div>
-
-  <div class="content">
-    <h2>Web-App Operation</h2>
-    <p>
-      Users land on the home screen and enter the ingredients they currently have. 
-      They click “Get Recipes” to see a curated list of sustainable, low-waste recipes. 
-      Each recipe displays used ingredients, missing ingredients, and a link to view the full instructions. 
-      Users can scroll through results, click on recipes they like, and start cooking while following the app’s guidance on efficient ingredient use. 
-      Through repeated sessions, the app tracks usage patterns and provides feedback on reducing food waste and saving money.
-    </p>
-  </div>
-
-  <a href="index.html" class="back-button">← Back to Home</a>
-
-</body>
+  </body>
 </html>

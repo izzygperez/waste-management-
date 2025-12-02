@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eco Plate — My Pantry</title>
+    <link rel="stylesheet" href="/src/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  </head>
+  <body>
+
+    <!-- Navigation -->
+    <nav class="main-nav" aria-label="Primary">
+      <div class="nav-container">
+        <a href="/" class="logo">Eco Plate 🌿</a>
+        <ul class="nav-list">
+          <li><a class="nav-link" href="/">Home</a></li>
+          <li><a class="nav-link" href="/recipes.html">Recipes</a></li>
+          <li><a class="nav-link active" href="/pantry.html">Pantry</a></li>
+          <li><a class="nav-link" href="/motivation.html">Mission</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Smart Scan Overlay (Moved Here) -->
+    <div id="cameraOverlay" class="camera-overlay hidden">
+      <div class="scanner-box">
+        <div class="scan-line"></div>
+        <p id="scanStatus">Connecting to Fridge Cam...</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="header-row">
+        <h1>My Digital Pantry</h1>
+        <div class="pantry-controls">
+           <!-- THE SCANNER IS NOW HERE -->
+           <button id="scanBtn" class="scan-btn small-btn">
+             <i class="fa-solid fa-camera"></i> Scan Fridge
+           </button>
+           <button id="clearPantryBtn" class="clear-btn">Clear</button>
+        </div>
+      </div>
+      
+      <p>Manage your inventory here. Scan new items or add them manually.</p>
+
+      <!-- Manual Add Input -->
+      <div class="controls" style="margin-bottom: 2rem;">
+        <input type="text" id="manualInput" placeholder="Type an item (e.g. Rice)...">
+        <button id="addBtn" class="primary-btn">Add</button>
+      </div>
+
+      <!-- Empty State -->
+      <div id="emptyState" class="empty-state">
+        <i class="fa-solid fa-basket-shopping fa-3x" style="color: #ddd;"></i>
+        <p>Your pantry is empty. Use the Scanner!</p>
+      </div>
+
+      <!-- Pantry Grid -->
+      <div id="pantryGrid" class="pantry-grid"></div>
+
+      <!-- Action Footer -->
+      <div class="pantry-actions" id="pantryActions" style="display:none;">
+        <hr style="border:0; border-top:1px solid #eee; margin: 2rem 0;">
+        <h3>Ready to eat?</h3>
+        <p>We can suggest recipes based on these exact items.</p>
+        <a href="/recipes.html?usePantry=true" class="primary-btn" style="display:block; text-align:center; text-decoration:none;">
+          Go to Recipe Chatbot <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/src/pantry.js"></script>
+  </body>
+</html>
