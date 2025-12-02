@@ -3,71 +3,65 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Eco Plate — Find Recipes</title>
+    <title>Eco Plate — AI Chef</title>
     <link rel="stylesheet" href="/src/style.css">
-    <style>
-      body {
-        font-family: Poppins, Arial, sans-serif;
-        background: linear-gradient(to bottom right,#e8f5e9,#fdfaf6);
-        color: #213d2b;
-        margin: 0; /* ensure nav reaches the top */
-        padding: 0; /* IMPORTANT FIX */
-      }      
-      .card {margin-top: 2rem; max-width:720px; margin: 0 auto; background: #fff; padding: 1.5rem; border-radius: 12px; box-shadow: 0 6px 18px rgba(0,0,0,0.08); }
-      .chat { border: 1px solid #eee; padding: 1rem; min-height: 140px; border-radius: 8px; margin-bottom: 1rem; }
-      .messages { list-style: none; padding: 0; margin: 0; }
-      .messages li { margin-bottom: 0.6rem; }
-      .bot { color: #fff; background: #2e7d32; display: inline-block; padding: 0.5rem 0.75rem; border-radius: 12px; }
-      .user { color: #213d2b; background: #f1f8f2; display: inline-block; padding: 0.5rem 0.75rem; border-radius: 12px; }
-      .controls { display:flex; gap: .5rem; margin-top: .75rem; }
-      input[type=text] { flex: 1; padding: .6rem .75rem; border-radius: 8px; border: 1px solid #dfeee0; }
-      button { background: #2e7d32; color: white; border: none; padding: .6rem .9rem; border-radius: 8px; }
-      .results { margin-top: 1rem; }
-      .recipe { border-bottom: 1px dashed #e6efe6; padding: .75rem 0; }
-      .loader {
-      padding: 1.5rem;
-      text-align: center;
-      font-style: italic;
-      color: #555;
-    }
-      /* Tablet */
-      @media (max-width: 900px) {
-        .card { max-width: 640px; padding: 1.25rem; }
-      }
-      /* Mobile: stack controls vertically and make card full-width */
-      @media (max-width: 480px) {
-        body { padding: 1rem; }
-        .card { width: 100%; padding: 1rem; box-shadow: none; }
-        .controls { flex-direction: column; }
-        .controls input, .controls button { width: 100%; }
-      }
-    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   </head>
   <body>
+    
     <nav class="main-nav" aria-label="Primary">
-    <ul class="nav-list">
-      <li><a class="nav-link" href="/">Home</a></li>
-      <li><a class="nav-link" href="/recipes.html">Recipes</a></li>
-      <li><a class="nav-link" href="/motivation.html">Motivation</a></li>
-    </ul>
-  </nav>
-    <div class="card">
-      <h1>Find recipes from your ingredients</h1>
-      <p>Tell me what ingredients you have (comma separated). I'll suggest recipes.</p>
-
-
-      <div class="controls">
-        <input id="ingredients" type="text" placeholder="e.g. tomato, cheese, basil" />
-        <button id="send">Ask</button>
-      </div>
-
-            <div class="chat">
-        <ul class="messages" id="messages">
-          <li><span class="bot">Hi! What ingredients do you have?</span></li>
+      <div class="nav-container">
+        <a href="/" class="logo">Eco Plate 🌿</a>
+        <ul class="nav-list">
+          <li><a class="nav-link" href="/">Home</a></li>
+          <li><a class="nav-link active" href="/recipes.html">Recipes</a></li>
+          <li><a class="nav-link" href="/pantry.html">Pantry</a></li>
+          <li><a class="nav-link" href="/motivation.html">Mission</a></li>
         </ul>
+      </div>
+    </nav>
+
+    <div class="card">
+      <div class="header-row">
+        <h1><i class="fa-solid fa-robot" style="color:#2e7d32;"></i> AI Chef</h1>
+        <div class="impact-badge">
+          <i class="fa-solid fa-carrot"></i> Impact: <span id="impactCount">0</span> Saved
+        </div>
+      </div>
+      
+      <div class="chat-container">
+        <ul class="chat" id="messages">
+          <li class="bot">
+            Hello! I'm your Sustainable Sous-Chef. 
+            <br>Tell me what you want to cook, or 
+            <a href="#" id="usePantryLink">load ingredients from your pantry</a>.
+          </li>
+        </ul>
+        
+        <div class="controls chat-controls">
+          <input id="ingredients" type="text" placeholder="Type ingredients (e.g. Tomato, Basil)..." />
+          <button id="send" class="send-btn">
+            <i class="fa-solid fa-paper-plane"></i>
+          </button>
+        </div>
+      </div>
+      
+      <div style="margin-top: 10px; font-size: 0.9rem; color: #666; text-align: center;">
+           <span id="pantryStatus"></span>
       </div>
 
       <div class="results" id="results"></div>
+    </div>
+
+    <!-- NEW: Recipe Details Modal -->
+    <div id="recipeModal" class="modal hidden">
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <div id="modalBody">
+          <!-- Details injected here by JS -->
+          <div class="loader">Loading recipe details...</div>
+        </div>
+      </div>
     </div>
 
     <script src="/src/recipes.js"></script>
